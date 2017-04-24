@@ -36,9 +36,24 @@
                         </div>
                     </div>
                 </div>
-            </div>            
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <a href="{{url('/client/preferences/registrasi_wilayah')}}" class="btn btn-primary"><i class="fa fa-reply"></i>&nbsp;&nbsp;Kembali</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+@endsection
+
+
+@section('style')
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 @endsection
 
 @section('script')

@@ -27,7 +27,7 @@
                                     <td align="center">{{$wilayah->wilayah_id}}</td>
                                     <td align="center">{{$wilayah->parent_id}}</td>
                                     <td align="center">{{$wilayah->nama}}</td>
-                                    <td align="center">{!!$wilayah->registrasi()->count()>0 ? "<span class='label label-info'>Sudah Registrasi</span>" : "<span class='label label-warning'>Belum Registrasi</span>" !!}</td>
+                                    <td align="center">{!!$wilayah->registrasi()->count()>0 ? "<span class='label label-success'><i class='fa fa-info-circle'></i>&nbsp;&nbsp;Sudah Registrasi</span>" : "<span class='label label-warning'>Belum Registrasi</span>" !!}</td>
                                     <td align="center">
                                         @if($wilayah->registrasi()->count() > 0)
                                             <a href="{{url('/client/preferences/registrasi_wilayah/detile').'/'.$wilayah->wilayah_id}}" title="Lihat Detile" class="btn btn-info btn-xs"><i class="fa fa-address-card-o"></i></a>
