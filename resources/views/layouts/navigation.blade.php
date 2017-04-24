@@ -3,9 +3,10 @@
     @if(Auth::guard('web')->check())
         <li><a href="{{url('/')}}">Home</a></li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alat <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preferences <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="{{url('/client/tools/migrasi')}}">Migrasi Data</a></li>
+                <li><a href="{{url('/client/preferences/registrasi_wilayah')}}">Registrasi Wilayah</a></li>
             </ul>
         </li>
     @endif

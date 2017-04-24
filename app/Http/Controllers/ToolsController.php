@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Wilayah;
+use App\RegWilayah;
 class ToolsController extends Controller
 {
     public function index_migrate_wilayah(Request $request){
@@ -52,6 +53,39 @@ class ToolsController extends Controller
         }
 
         return $data;
+    }
+
+    public function index_registrasi_wilayah(){
+        $wilayah = Wilayah::where('parent_id', '=', '27714')->paginate(10);
+        return view('client.preferences.registrasi_wilayah.index', ['data_wilayah'=>$wilayah]);
+    }
+
+    public function tambah_registrasi_wilayah($id)
+    {
+        $wilayah = Wilayah::where('wilayah_id', '=', $id)->first();
+        return view('client.preferences.registrasi_wilayah.tambah', ['wilayah'=>$wilayah]);
+    }
+
+    public function simpan_registrasi_wilayah(Request $request)
+    {
+        $wilayah_id = $request->input('wilayah_id');
+        $lat = $request->input('lat');
+        $long = $request->input('long');
+
+        $regis = new RegWilayah();
+        $regis->wilayah_id = $wilayah_id;
+        $regis->lat = $lat;
+        $regis->long = $long;
+        
+        if($regis->save()){
+            $request->session()->flash('status', 'Konfigurasi Wilayah Sukses!');
+            return redirect('/client/preferences/registrasi_wilayah');
+        }
+    }
+
+    public function detile_wilayah($id){
+        $wilayah = Wilayah::where('wilayah_id', '=', $id)->first();
+        return view('client.preferences.registrasi_wilayah.detile', ['wilayah'=>$wilayah]);
     }
 
 }

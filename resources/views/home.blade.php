@@ -25,6 +25,7 @@
     <script type="text/javascript" src="{{url('/js/jquery.googlemap.js')}}"></script>   
     <script type="text/javascript" src="{{url('/js/gmap3.min.js')}}"></script>   
     <script type="text/javascript">
+        
         $(function() {
             var map = $("#map").googleMap({
                 zoom: 9, // Initial zoom level (optional)
