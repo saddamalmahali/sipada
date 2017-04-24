@@ -11,3 +11,10 @@
 |
 */
 Route::get('/', 'HomeController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/client/tools/migrasi', 'ToolsController@index_migrate_wilayah');
+    Route::post('/client/tools/migrasi', 'ToolsController@migrasi_wilayah');
+});
